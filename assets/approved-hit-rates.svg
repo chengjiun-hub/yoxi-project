@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg role="img" aria-labelledby="chart-title chart-desc" width="1040" height="530" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1040 530" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title id="chart-title">四月目的地網格命中率比較</title>
+<desc id="chart-desc">五種方法的 Top-1 與 Top-3 百分比，使用已同意公開的彙總紀錄繪製，無逐筆資料。座標軸從零到百分之百。</desc>
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1040" height="530"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-530)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1040" height="530" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="36" y="489" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 23px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,978) scale(1,-1)">四月回測：目的地網格命中率</text>
+			<text x="36" y="463" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,926) scale(1,-1)">作者既有執行紀錄摘要；本次未重跑模型。</text>
+			<text x="260" y="415" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 17px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,830) scale(1,-1)">Top-1</text>
+			<g transform="">
+				<path d="M 260,132 L 260,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 320,132 L 320,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 380,132 L 380,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 440,132 L 440,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 500,132 L 500,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 560,132 L 560,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<g transform="">
+					<rect x="260.0" y="144.9" width="115.47000000000003" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,41%,40%); fill-rule: evenodd;"/>
+					<rect x="260.0" y="196.5" width="91.52999999999997" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(35%,48%,60%); fill-rule: evenodd;"/>
+					<rect x="260.0" y="248.1" width="112.13999999999999" height="25.799999999999983" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(16%,56%,54%); fill-rule: evenodd;"/>
+					<rect x="260.0" y="299.7" width="91.40999999999997" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(35%,48%,60%); fill-rule: evenodd;"/>
+					<rect x="260.0" y="351.29999999999995" width="89.27999999999997" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,45%,54%); fill-rule: evenodd;"/>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,382.47,157.8)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">38.49%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,358.53,209.4)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">30.51%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,379.14,261)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">37.38%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,358.41,312.6)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">30.47%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,356.28,364.2)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">29.76%</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform=""/>
+					<g transform=""/>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,255,157.8)">
+							<text x="-123.076171875" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)">03｜加入位置特徵 ML¹</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,255,209.4)">
+							<text x="-99.076171875" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)">03｜基礎特徵 ML¹</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,255,261)">
+							<text x="-97.91015625" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)">03｜附近歷史規則</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,255,312.6)">
+							<text x="-94.55859375" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)">02｜歷史特徵 ML</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,255,364.2)">
+							<text x="-84.0" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)">個人最常去規則</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 260,132 L 560,132 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 260,132 L 260,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 320,132 L 320,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 380,132 L 380,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 440,132 L 440,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 500,132 L 500,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 560,132 L 560,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,260,127)">
+							<text x="-7.2998046875" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,320,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">20%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,380,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">40%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,440,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">60%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,500,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">80%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,560,127)">
+							<text x="-13.095703125" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">100%</text>
+						</g>
+					</g>
+				</g>
+			</g>
+			<text x="650" y="415" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 17px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,830) scale(1,-1)">Top-3</text>
+			<g transform="">
+				<path d="M 650,132 L 650,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 710,132 L 710,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 770,132 L 770,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 830,132 L 830,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 890,132 L 890,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 950,132 L 950,390 Z" style="stroke: rgb(88%,90%,94%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<g transform="">
+					<rect x="650.0" y="144.9" width="145.47000000000003" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,41%,40%); fill-rule: evenodd;"/>
+					<rect x="650.0" y="196.5" width="138.69000000000005" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(35%,48%,60%); fill-rule: evenodd;"/>
+					<rect x="650.0" y="248.1" width="143.73000000000002" height="25.799999999999983" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(16%,56%,54%); fill-rule: evenodd;"/>
+					<rect x="650.0" y="299.7" width="138.87" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(35%,48%,60%); fill-rule: evenodd;"/>
+					<rect x="650.0" y="351.29999999999995" width="137.30999999999995" height="25.80000000000001" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,45%,54%); fill-rule: evenodd;"/>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,802.47,157.8)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">48.49%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,795.69,209.4)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">46.23%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,800.73,261)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">47.91%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,795.87,312.6)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">46.29%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,794.31,364.2)">
+							<text x="0.0" y="-4.4" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,-8) scale(1,-1)">45.77%</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform=""/>
+					<g transform=""/>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,645,157.8)">
+							<text x="0.0" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)"></text>
+						</g>
+						<g transform=" matrix(1,0,0,1,645,209.4)">
+							<text x="0.0" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)"></text>
+						</g>
+						<g transform=" matrix(1,0,0,1,645,261)">
+							<text x="0.0" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)"></text>
+						</g>
+						<g transform=" matrix(1,0,0,1,645,312.6)">
+							<text x="0.0" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)"></text>
+						</g>
+						<g transform=" matrix(1,0,0,1,645,364.2)">
+							<text x="0.0" y="-4.800000000000001" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 12px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,-9) scale(1,-1)"></text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 650,132 L 950,132 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 650,132 L 650,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 710,132 L 710,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 770,132 L 770,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 830,132 L 830,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 890,132 L 890,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 950,132 L 950,127 Z" style="stroke: rgb(79%,83%,88%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,650,127)">
+							<text x="-7.2998046875" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,710,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">20%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,770,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">40%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,830,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">60%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,890,127)">
+							<text x="-10.19775390625" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">80%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,950,127)">
+							<text x="-13.095703125" y="-10.0" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 10px;fill: rgb(39%,45%,54%); stroke:none;" transform="translate(0,-20) scale(1,-1)">100%</text>
+						</g>
+					</g>
+				</g>
+			</g>
+			<text x="36" y="81" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,162) scale(1,-1)">¹ 03 的兩組 ML 共用含位置資訊的候選池；基礎特徵模型並非完全無位置對照。</text>
+			<text x="36" y="58" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,116) scale(1,-1)">對象：歷史至少 3 趟且四月有行程的帳號；候選未涵蓋答案者仍計入分母。</text>
+			<text x="36" y="35" style="font-family: Microsoft JhengHei, Noto Sans TC, sans-serif; font-size: 11px;fill: rgb(20%,25%,33%); stroke:none;" transform="translate(0,70) scale(1,-1)">四月曾參與探索，屬時間回測；位置方法以已確認上車點為前提。</text>
+		</g>
+	</g>
+</svg>
