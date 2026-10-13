@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>yoxi MoveAhead｜讓熟悉的路，更順手</title>
+  <meta name="description" content="yoxi 個人化移動助理互動原型：常用時段、上車點情境與個人目的地推薦。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2317191d'/%3E%3Cpath d='M16 20 31 44 47 20' fill='none' stroke='%23f7cb36' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root{font-family:Inter,"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;color:#1b1e22;background:#f3f3f0;font-size:16px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}.shell{max-width:1320px;margin:auto;padding:0 28px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid #dadbd7}.brand{font-weight:900;font-size:1.6rem;letter-spacing:-.08em}.brand b{color:#e7b817}.brand small{font-size:.78rem;letter-spacing:0;font-weight:700;margin-left:10px;color:#696d72}.topright{display:flex;align-items:center;gap:12px;font-size:.83rem;color:#64686b}.pill{border:1px solid #d5d7d2;border-radius:99px;padding:7px 12px;background:#fff}.layout{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(330px,.72fr);gap:22px;padding-top:27px}.stack{display:grid;gap:20px;align-content:start}.card{background:#fff;border:1px solid #e4e5df;border-radius:23px;box-shadow:0 8px 28px #21231e0a}.pad{padding:25px}.eyebrow{font-size:.76rem;letter-spacing:.13em;font-weight:800;color:#777c7f;text-transform:uppercase}.title{font-size:2.1rem;line-height:1.24;letter-spacing:-.045em;margin:12px 0 8px}.muted{color:#656a6d;line-height:1.6}.small{font-size:.83rem}.scenario{display:flex;flex-wrap:wrap;gap:7px;margin-top:21px}.seg{border:1px solid #daddd7;background:#f8f8f5;color:#42474b;border-radius:99px;padding:9px 14px;font-size:.88rem;font-weight:700}.seg.active{background:#1c1f21;border-color:#1c1f21;color:#fff}.switcher{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 25px;border-top:1px solid #eff0ec}.switcher label{font-size:.82rem;font-weight:700}.switcher select{border:1px solid #d5d7d2;border-radius:9px;background:#fff;padding:9px;max-width:235px;color:#272a2c}.journey{padding:27px;background:#21252a;color:#fff;position:relative;overflow:hidden}.journey:after{content:"";position:absolute;right:-65px;top:-70px;width:260px;height:260px;border:1px solid #ffffff18;border-radius:50%;box-shadow:0 0 0 35px #ffffff08,0 0 0 70px #ffffff06;pointer-events:none}.journey .eyebrow{color:#f3ca3e}.journey h2{font-size:2.05rem;line-height:1.2;letter-spacing:-.04em;margin:9px 0 8px;position:relative;z-index:1}.journey p{color:#c9cdd0;margin:0;line-height:1.55}.clockline{display:flex;align-items:stretch;gap:10px;margin-top:23px;position:relative;z-index:1}.clock{flex:1;background:#ffffff12;border:1px solid #ffffff20;border-radius:15px;padding:15px}.clock strong{display:block;font-size:1.55rem;letter-spacing:-.04em;margin-top:6px}.clock span{font-size:.78rem;color:#d0d3d5}.clock.highlight{background:#f4c735;color:#17191b;border-color:#f4c735}.clock.highlight span{color:#45411f}.equation{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:17px;font-size:.9rem;color:#e1e3e3}.equation b{color:#f5cb3d}.journey .note{font-size:.77rem;margin-top:13px;color:#b5b9bc}.sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}.sectionhead h2{font-size:1.14rem;margin:0;letter-spacing:-.02em}.sectionhead span{font-size:.78rem;color:#7a7e81}.destination-list{display:grid;gap:9px}.dest{display:flex;align-items:center;text-align:left;gap:13px;border:1px solid #e1e3de;border-radius:14px;background:#fff;padding:14px;width:100%;color:#222629;min-height:74px}.dest:hover,.dest:focus-visible{border-color:#b39a30;outline:none}.dest.selected{border:2px solid #e7bd25;background:#fff9df;padding:13px}.dest .num{display:grid;place-items:center;border-radius:11px;background:#f1f1ed;width:34px;height:34px;font-size:.78rem;font-weight:900;flex:none}.dest .text{flex:1}.dest strong{font-size:.96rem}.dest small{display:block;color:#707578;margin-top:4px}.dest .tick{font-weight:800;color:#9c7910}.empty{background:#f6f6f3;border:1px dashed #d4d8d3;border-radius:13px;padding:18px;line-height:1.55;color:#5d6365}.searchrow{display:flex;gap:8px;margin-top:15px}.searchrow input{flex:1;min-width:0;border:1px solid #d9dcd7;border-radius:11px;padding:12px 13px}.btn{border:0;border-radius:11px;padding:12px 15px;font-weight:800}.btn.dark{background:#202427;color:#fff}.btn.yellow{background:#f3c832;color:#1e2224}.btn.light{background:#f4f4f0;color:#25292b;border:1px solid #e1e3dd}.hint{display:block;margin-top:10px;font-size:.78rem;color:#7c8182;line-height:1.5}.summary{background:#f8f8f4;border:1px solid #eceee7;border-radius:14px;padding:16px;margin-top:16px;display:flex;justify-content:space-between;gap:15px;align-items:center}.summary strong{display:block;margin-top:4px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pickup{padding:17px;border:1px solid #e0e3dd;border-radius:15px;background:#fff;text-align:left;min-height:146px}.pickup.selected{border:2px solid #eac32e;background:#fffaf0;padding:16px}.pickup b{font-size:1.1rem}.pickup .time{font-weight:850;font-size:1.55rem;display:block;margin:10px 0 3px}.pickup .detail{font-size:.82rem;color:#666d70;line-height:1.5}.comparetip{padding:14px 15px;background:#f7f7f3;border-radius:12px;color:#4c5152;font-size:.85rem;line-height:1.55;margin-top:12px}.micro{display:flex;gap:9px;align-items:flex-start;padding:14px 0;border-top:1px solid #eceee9}.micro:first-of-type{border-top:0}.micro .icon{font-size:1.1rem;line-height:1.2}.micro strong{display:block;font-size:.9rem}.micro p{margin:5px 0 0;font-size:.83rem;color:#666c6f;line-height:1.55}.analysis{background:#f8f8f5}.analysis details{border-top:1px solid #e3e5df;padding:15px 0}.analysis details:first-of-type{margin-top:16px}.analysis summary{cursor:pointer;font-weight:800}.analysis details p{font-size:.86rem;color:#5c6263;line-height:1.65;margin:11px 0 0}.metricrow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:15px 0}.metric{background:#fff;padding:13px;border-radius:12px;border:1px solid #e7e8e2}.metric strong{display:block;font-size:1.28rem}.metric span{font-size:.74rem;color:#686d6f;line-height:1.4}.bottom{margin-top:26px;border-top:1px solid #d9dbd6;padding-top:19px;color:#747a7b;font-size:.78rem;line-height:1.7}.status{font-size:.85rem;color:#58615d;min-height:1.4em;margin-top:12px}.sr-only{position:absolute;left:-9999px}@media(max-width:920px){.layout{grid-template-columns:1fr}.shell{padding:0 16px 60px}.topbar{padding:17px 0}.topright .pill{display:none}.title{font-size:1.7rem}.journey h2{font-size:1.8rem}}@media(max-width:500px){.pad{padding:20px}.switcher{padding:16px 20px;align-items:flex-start;flex-direction:column}.clockline{gap:6px}.clock{padding:11px}.clock strong{font-size:1.23rem}.grid2{grid-template-columns:1fr}.metricrow{grid-template-columns:1fr 1fr}.summary{align-items:flex-start;flex-direction:column}}
+  </style>
+  <style>
+    .tab-panel[hidden],.journey[hidden]{display:none!important}
+    .demo-wrapper{max-width:1120px;margin:26px auto 18px}
+    .app-view{max-width:860px;margin:0 auto 28px;min-height:52vh}
+    .app-stack{display:grid;gap:18px;align-content:start}
+    .today-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .today-item{padding:19px;background:#f6f6f2;border:1px solid #e8e9e3;border-radius:15px}
+    .today-item strong{display:block;margin:12px 0 6px;font-size:1.14rem}
+    .today-item p{color:#646b6c;line-height:1.5;font-size:.86rem;margin:0}
+    .home-cta{margin-top:18px;width:100%;min-height:48px}
+    .bottomnav{position:fixed;bottom:8px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;width:min(360px,calc(100% - 24px));padding:5px;background:#202427;border:1px solid #41484a;border-radius:16px;box-shadow:0 10px 26px #1118;z-index:10}
+    .bottomnav button{border:0;background:transparent;color:#d0d3d3;border-radius:11px;min-height:48px;font-size:.875rem;font-weight:750;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
+    .bottomnav button span{font-size:1rem;line-height:1}
+    .bottomnav button.active{background:#3b4143;color:#fff}
+    .bottomnav button:focus-visible{outline:2px solid #f3c832;outline-offset:2px}
+    .shell{padding-bottom:88px}
+    .demo-setup{background:#202427;color:#fff;padding:22px 24px;border-color:#202427}
+    .demo-setup>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;font-weight:850;line-height:1.4}
+    .demo-setup>summary::-webkit-details-marker{display:none}.demo-setup>summary span{font-size:.78rem;color:#f2cb3d;font-weight:700}
+    .demo-setup[open]>summary{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid #4b5152}
+    .demo-body>#demo-start{width:100%;margin-top:17px;min-height:45px}
+    .demo-banner{max-width:860px;margin:0 auto 18px;display:flex;gap:10px;align-items:center;background:#fff8db;border:1px solid #e8d994;padding:12px 16px;border-radius:12px;color:#4a432b;font-size:.83rem;line-height:1.45}
+    .demo-banner strong{white-space:nowrap;color:#292414}
+    .evidence-drawer{border:1px solid #dddcd0;border-radius:14px;background:#fff}
+    .evidence-drawer>summary{cursor:pointer;padding:16px 20px;font-weight:800;color:#4a5050}
+    .evidence-drawer>.analysis{border:none;box-shadow:none;border-top:1px solid #eceee7;border-radius:0 0 14px 14px}
+    .demo-setup .eyebrow{color:#f2cb3d}.demo-setup h2{margin:7px 0 5px;font-size:1.28rem}.demo-setup p{margin:0;color:#cbd0d0;line-height:1.5;font-size:.83rem}
+    .demo-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:19px}
+    .demo-fields label{display:block;font-size:.78rem;font-weight:800;color:#d5d9d9;margin-bottom:7px}
+    .demo-fields select{width:100%;padding:11px 12px;border:1px solid #535a5c;border-radius:10px;background:#353a3d;color:#fff;min-width:0}
+    .persona-overview{margin-top:17px;border-top:1px solid #444a4d;padding-top:14px}
+    .persona-overview .label{font-size:.77rem;color:#e1e5e5;font-weight:800;margin-bottom:9px}
+    .persona-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+    .persona-mini{border:1px solid #4d5557;background:#2c3235;border-radius:10px;padding:9px 8px;line-height:1.35;min-height:76px}
+    .persona-mini.selected{border-color:#f2c835;background:#45402a}.persona-mini strong{display:block;color:#fff;font-size:.84rem}.persona-mini span{display:block;color:#c7cccb;font-size:.73rem;margin-top:4px}
+    .persona-detail{margin-top:11px!important;color:#f4e7ae!important}
+    .destination-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+    .dest,.dest.selected{min-height:56px;padding:9px 10px;gap:8px;border-radius:11px}
+    .dest .num{width:26px;height:26px;border-radius:8px;font-size:.7rem}.dest strong{font-size:.84rem;line-height:1.35;display:block}.dest small,.dest .tick{display:none}
+    .transit-card{border-color:#dedad0}.transit-route{font-weight:800;font-size:1.2rem;margin:6px 0 12px}.transit-meta{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.transit-meta span{background:#f5f5f0;border-radius:9px;padding:8px 10px;font-size:.88rem}.transit-steps{margin:14px 0 0;padding-left:20px;line-height:1.65}.transit-steps li{margin:6px 0}.transit-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.transit-card .status{margin:12px 0 0}.transit-card a{font-size:.86rem;text-decoration:underline;text-underline-offset:3px}
+    .trip-entry{border-color:#e8d18a;background:#fffdf4}.trip-entry h2{font-size:1.22rem;margin:0 0 8px}.trip-entry p{margin:0 0 15px}.trip-thread{display:grid;gap:8px;margin-bottom:12px}.trip-message{max-width:88%;padding:10px 13px;border-radius:14px;line-height:1.55;font-size:.9rem;white-space:pre-wrap}.trip-message.assistant{justify-self:start;background:#f0f1ec;color:#272d2e;border-bottom-left-radius:4px}.trip-message.user{justify-self:end;background:#f4cf55;color:#252728;border-bottom-right-radius:4px}.trip-compose{display:flex;gap:9px;align-items:flex-end}.trip-compose textarea{resize:vertical;min-height:54px;max-height:150px;flex:1;min-width:0;border:1px solid #d6d9d3;border-radius:12px;padding:13px 14px;line-height:1.5;background:#fff}.trip-compose textarea:focus-visible{outline:2px solid #e9ba24;outline-offset:2px}.trip-examples{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.trip-examples button{border:1px solid #d8d9d0;border-radius:99px;background:#fff;padding:7px 11px;font-size:.8rem;color:#45494a}.trip-entry .status{margin-top:9px}
+    .ride-screen{overflow:hidden;border-radius:23px;border:1px solid #dfe3e7;background:#fff;box-shadow:0 8px 28px #21231e0a}
+    .ride-map{height:340px;position:relative;overflow:hidden;background:#edf0f3;color:#607386}
+    .ride-map:before{content:"";position:absolute;inset:-55px;transform:rotate(-9deg);background:linear-gradient(90deg,transparent 0 22%,#fff 22% 25%,transparent 25% 52%,#fff 52% 55%,transparent 55% 77%,#fff 77% 80%,transparent 80%),linear-gradient(0deg,transparent 0 18%,#fff 18% 23%,transparent 23% 47%,#fff 47% 51%,transparent 51% 75%,#fff 75% 79%,transparent 79%);opacity:.95}
+    .ride-map:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#cbe1f4aa;left:48%;top:51%;transform:translate(-50%,-50%);pointer-events:none}
+    .map-top{position:absolute;z-index:2;top:17px;left:19px;right:19px;display:flex;justify-content:space-between;align-items:center;gap:10px}.map-logo{font-weight:900;font-size:1.25rem;color:#0e2440;letter-spacing:-.06em}.map-logo b{color:#ee4443}.map-tag{border-radius:99px;background:#fff;padding:7px 11px;color:#526371;font-size:.76rem;font-weight:800;box-shadow:0 3px 12px #0c29421a}
+    .map-road{position:absolute;z-index:1;font-size:.82rem;color:#8091a0;white-space:nowrap}.map-road.one{top:30%;left:15%;transform:rotate(-8deg)}.map-road.two{top:66%;right:12%;transform:rotate(8deg)}.map-road.three{top:56%;left:12%;transform:rotate(-88deg)}
+    .map-center{position:absolute;z-index:2;left:48%;top:51%;transform:translate(-50%,-50%);display:grid;justify-items:center}.map-pin{display:grid;place-items:center;width:49px;height:49px;border:5px solid #fff;border-radius:50% 50% 50% 5px;transform:rotate(-45deg);background:#0c2542;color:#fff;font-size:1.2rem;box-shadow:0 5px 14px #0c254244}.map-pin span{transform:rotate(45deg)}.map-dot{width:14px;height:14px;background:#168de7;border:3px solid #fff;border-radius:50%;margin-top:24px;box-shadow:0 0 0 12px #168de722}
+    .map-caption{position:absolute;z-index:3;bottom:20px;left:20px;background:#fff;border-radius:10px;padding:9px 12px;box-shadow:0 4px 15px #122b4030;color:#19324c;font-size:.87rem;font-weight:800;max-width:calc(100% - 40px)}
+    .ride-sheet{position:relative;border-radius:22px 22px 0 0;margin-top:-13px;background:#fff;z-index:4;padding:22px 25px 27px}.ride-handle{height:5px;width:44px;background:#c7d0dc;border-radius:99px;margin:-9px auto 17px}.ride-sheet h1{font-size:1.6rem;margin:0 0 15px;color:#0b2340}.ride-route-inputs{border:1px solid #dce2e9;border-radius:12px;padding:13px 16px;margin-bottom:17px}.ride-route-inputs .searchrow{margin:5px 0 0}.ride-route-inputs label{font-size:.78rem;color:#718299}.ride-route-inputs input{border:0;box-shadow:none;background:transparent;padding:8px 0;color:#112c4b}.ride-route-inputs input:focus{outline:2px solid #c7ddec}.route-row{display:grid;grid-template-columns:15px minmax(0,1fr);gap:12px;align-items:center}.route-mark{width:12px;height:12px;background:#0b2749;border-radius:50%}.route-mark.red{background:#ed4b49}.route-divider{border-top:1px solid #e3e7ec;margin:8px 0 8px 27px}.route-field{min-width:0}.route-field .searchrow{display:flex;gap:7px;align-items:center}.route-field .searchrow input{min-width:0;flex:1}.route-field .btn{font-size:.8rem;padding:8px 10px;white-space:nowrap}.ride-sheet .destination-list{margin:9px 0 13px}.ride-sheet .summary{margin-top:16px}.ride-extras{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:6px 0 16px;font-size:.83rem;color:#66758a}.ride-extras strong{background:#0b2544;color:white;padding:7px 12px;border-radius:99px}.ride-history{border-top:1px solid #edf0f3;padding-top:15px;margin-top:17px;color:#142d4b}.ride-history summary{cursor:pointer;font-weight:800}.ride-history p{font-size:.85rem;line-height:1.55;color:#65758a;margin:8px 0}.ride-history-list{display:flex;flex-wrap:wrap;gap:7px}.ride-history-list span{border:1px solid #d8e1ea;border-radius:8px;padding:7px 9px;font-size:.83rem}
+    .ride-sheet .btn.dark{background:#0b2544}.ride-sheet .btn.yellow{background:#0b2544;color:#fff}
+    @media(max-width:720px){.demo-fields{grid-template-columns:1fr 1fr}.demo-fields .user-field{grid-column:1/-1}.persona-list{grid-template-columns:repeat(5,minmax(110px,1fr));overflow-x:auto;padding-bottom:4px}}
+    @media(max-width:500px){.demo-setup{padding:20px}.demo-fields{grid-template-columns:1fr}.demo-fields .user-field{grid-column:auto}.destination-list{grid-template-columns:1fr 1fr}.dest strong{font-size:.8rem}.today-grid{grid-template-columns:1fr}.bottomnav{bottom:8px}.trip-compose{align-items:stretch}.trip-compose .btn{flex:none}.ride-map{height:270px}.ride-sheet{padding:20px 16px 25px}.ride-route-inputs{padding:12px}.route-field .btn{font-size:.72rem;padding:7px}.ride-sheet h1{font-size:1.4rem}}
+  </style>
+
+  <style id="mobile-app-layout">
+    :root{color:#10263f;background:#e9edf1;font-size:15px}
+    body{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;gap:12px;background:radial-gradient(ellipse at top,#fff 0,#eef1f5 50%,#dfe5ec 100%)}
+    .preview-tools{width:430px;max-width:100%;display:flex;align-items:center;justify-content:space-between;color:#536478;font-size:12px;gap:12px}
+    .preview-tools strong{color:#10263f;display:block;font-size:14px;margin-bottom:3px}
+    .preview-tools button{background:white;border:1px solid #cdd6df;color:#10263f;border-radius:9px;padding:9px 12px;white-space:nowrap}
+    .preview-tools button[aria-pressed="true"]{background:#10263f;color:white}
+    .phone-device{width:430px;max-width:100%;height:min(880px,calc(100dvh - 94px));min-height:400px;border:7px solid #14253a;border-radius:40px;position:relative;overflow:hidden;background:#f5f7fa;box-shadow:0 22px 65px #1d365333,0 2px 8px #182b3322}
+    .shell{width:100%;height:100%;max-width:none;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;margin:0;padding:0 16px 100px;scrollbar-width:none}.shell::-webkit-scrollbar{display:none}
+    .topbar{padding:18px 2px 13px;gap:8px;border-bottom:0}.brand{font-size:1.7rem;color:#0b2544}.brand b{color:#f44747}.brand small{font-size:.73rem;color:#60748b}.topright{font-size:.68rem}.topright .pill{display:block;border:0;background:#e7edf4;padding:6px 9px;color:#486079}.topright>span:last-child{display:none}
+    .demo-wrapper{margin:0 0 12px}.demo-setup{padding:13px 14px;border-radius:14px;background:#10263f;border-color:#10263f}.demo-setup>summary{font-size:.79rem;gap:7px}.demo-setup>summary span{font-size:.66rem;color:#c2d4e8}.demo-setup[open]>summary{margin-bottom:12px;padding-bottom:12px}.demo-setup h2{font-size:1rem}.demo-fields{grid-template-columns:1fr;gap:10px;margin-top:14px}.demo-fields .user-field{grid-column:auto}.demo-fields select{font-size:14px;min-height:42px}.persona-list{display:flex;overflow-x:auto;gap:7px;padding-bottom:6px}.persona-mini{min-width:115px}.demo-setup .eyebrow{color:#b9d0e9}
+    .demo-banner{font-size:.68rem;padding:9px 11px;border-radius:10px;margin-bottom:14px;gap:7px;background:#f0f3f7;border:1px solid #dce4ed;color:#586c82}.demo-banner strong{color:#334e6a}
+    .app-view{max-width:none;margin:0;min-height:0}.app-stack{gap:14px}.card{border-radius:18px;border-color:#e1e7ee;box-shadow:0 4px 15px #18304a04}.pad{padding:18px}.title{font-size:1.65rem;line-height:1.35;margin:9px 0}.muted{font-size:.88rem}.eyebrow{font-size:.68rem;letter-spacing:.07em;color:#708398}.sectionhead{align-items:flex-start;gap:8px;margin-bottom:12px}.sectionhead h2{font-size:1.03rem;line-height:1.4}.sectionhead span{font-size:.67rem;flex-shrink:0;max-width:100px;text-align:right}
+    .trip-entry{background:#fff;border-color:#d8e2ed}.trip-entry h2{font-size:1.15rem;margin-top:8px}.trip-message{font-size:.85rem;max-width:96%;padding:10px 12px}.trip-message.assistant{background:#f0f4f8;color:#304861}.trip-message.user{background:#e5edf6;color:#10263f}.trip-compose{gap:7px;align-items:stretch}.trip-compose textarea{font-family:inherit;font-size:16px;padding:11px;min-height:60px}.trip-compose .btn{padding:10px 13px}.trip-examples{gap:6px}.trip-examples button{font-size:.72rem;padding:7px 9px}.hint{font-size:.7rem;line-height:1.6}.status{font-size:.78rem}.status:empty{display:none}
+    .btn.yellow,.btn.dark{background:#0b2544;color:white}.btn.light{background:#f0f4f8;border-color:#dce4ed;color:#304861}.btn{border-radius:10px;font-size:.87rem;min-height:40px}.today-grid{grid-template-columns:1fr;gap:9px}.today-item{padding:14px;background:#f3f6fa;border:0;border-radius:12px}.today-item strong{font-size:1rem;margin:7px 0}.today-item p{font-size:.8rem}.home-cta{margin-top:13px}
+    .ride-screen{border:0;border-radius:0;box-shadow:none;margin:0 -16px}.ride-map{height:255px}.ride-sheet{padding:21px 17px 18px}.ride-sheet h1{font-size:1.5rem}.ride-route-inputs{padding:12px}.route-field .searchrow input{font-size:16px}.route-field .btn{font-size:.72rem;padding:7px;min-height:36px}.route-row{gap:9px}.destination-list{grid-template-columns:1fr;gap:6px}.dest,.dest.selected{padding:10px 11px;min-height:46px;border-radius:10px;gap:10px}.dest strong{font-size:.86rem}.dest.selected{border-color:#0b2544;background:#eef4fa}.dest .num{background:#edf2f7;color:#23405f;width:26px;height:26px}.dest .tick{display:block;color:#f44747}.summary{flex-direction:column;align-items:stretch;gap:12px;padding:14px;background:#f3f6fa;border-color:#e2e8ef}.summary .btn{width:100%}.ride-history{font-size:.85rem}.ride-extras{font-size:.72rem}.map-tag{font-size:.65rem}.map-caption{font-size:.83rem}
+    .grid2{grid-template-columns:1fr 1fr;gap:8px}.pickup{min-height:138px;padding:13px}.pickup.selected{padding:12px;border-color:#0b2544;background:#eef4fa}.pickup b{font-size:.9rem}.pickup .time{font-size:1.5rem}.pickup .detail{font-size:.74rem}.journey{padding:18px;background:#10263f}.journey h2{font-size:1.6rem}.journey .eyebrow{color:#c3d7ee}.clockline{gap:6px}.clock{padding:10px 7px;min-width:0}.clock strong{font-size:1.23rem}.clock span{font-size:.65rem}.clock.highlight{background:#e6eef8;color:#10263f;border-color:#e6eef8}.clock.highlight span{color:#45607e}.equation{font-size:.8rem;gap:7px}.equation b{color:#fff}.transit-route{font-size:1.05rem}.transit-actions{gap:10px}.metricrow{grid-template-columns:1fr 1fr}.evidence-drawer>summary{font-size:.8rem;padding:14px}.bottom{font-size:.67rem;line-height:1.7;margin-top:20px;padding-top:14px}
+    .bottomnav{position:absolute;bottom:0;left:0;transform:none;width:100%;border:0;border-top:1px solid #e1e7ee;border-radius:0;background:#ffffffed;backdrop-filter:blur(16px);box-shadow:0 -4px 20px #122d4308;padding:7px 12px 18px;gap:8px;z-index:20}.bottomnav button{min-height:45px;font-size:.75rem;flex-direction:column;gap:4px;color:#788a9d;border-radius:10px;background:transparent}.bottomnav button span{font-size:1.12rem}.bottomnav button.active{background:#edf2f8;color:#0b2544}.bottomnav:after{content:"";position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:100px;height:4px;border-radius:9px;background:#10263f}.bottomnav button:focus-visible{outline-color:#ed4b49}
+    body.presentation .demo-wrapper,body.presentation .demo-banner,body.presentation .bottom{display:none}body.presentation .trip-entry>.hint{display:none}
+    @media(max-width:500px){body{padding:0;display:block;background:#f5f7fa}.preview-tools{display:none}.phone-device{width:100%;max-width:none;height:100dvh;min-height:0;border:0;border-radius:0;box-shadow:none}.bottomnav{padding-bottom:max(18px,env(safe-area-inset-bottom))}.shell{padding-top:env(safe-area-inset-top)}.phone-device input,.phone-device select{font-size:16px}}
+  </style>
+</head>
+<body>
+  <div class="preview-tools"><div><strong>yoxi MoveAhead</strong>手機 App 互動原型 · 可直接操作與截圖</div><button id="presentation-toggle" type="button" aria-pressed="false">簡報模式</button></div>
+  <div class="phone-device">
+  <div class="shell">
+    <header class="topbar"><div class="brand">yo<b>x</b>i <small>MoveAhead</small></div><div class="topright"><span class="pill">互動概念展示</span><span>讓熟悉的路，更順手</span></div></header>
+    <section class="demo-wrapper"><details class="card demo-setup" id="demo-settings"><summary id="demo-summary"><strong id="demo-current">展示設定 · A 安安／下班通勤</strong><span>點此收合或更換</span></summary><div class="demo-body"><div class="eyebrow">僅供概念展示 · 正式乘客不需設定</div><h2 id="demo-title">先選一位乘客和展示情境</h2><p>以下五位都是虛構人物。選乘客會帶入其歷史類型；改選歷史類型會切到符合的示範乘客。等車、時間及地點也都是展示數值。</p><div class="demo-fields"><div><label for="scenario-select">① 展示情境</label><select id="scenario-select"><option value="commute">下班通勤</option><option value="rain">雨天出門</option><option value="event">活動散場</option></select></div><div><label for="profile">② 模擬乘客歷史</label><select id="profile"><option value="nearby">有附近上車歷史</option><option value="personal">有歷史，附近無路線</option><option value="new">首次使用／歷史不足</option></select></div><div class="user-field"><label for="persona-select">③ 選擇虛構乘客</label><select id="persona-select"><option value="A">乘客 A · 固定時段示例</option><option value="B">乘客 B · 轉乘示例</option><option value="C">乘客 C · 週末活動示例</option><option value="D">乘客 D · 改上車點示例</option><option value="E">乘客 E · 初次使用示例</option></select></div></div><div class="persona-overview"><div class="label">五位乘客背景（全為虛構）</div><div class="persona-list" id="persona-list"></div><p class="persona-detail" id="persona-detail"></p></div><button id="demo-start" class="btn yellow" type="button">套用背景，開始體驗</button></div></details></section>
+    <div class="demo-banner" role="note"><strong>展示模式</strong><span>人物、地點與時間均為虛構設定。文字解析使用規則；GenAI、ML 推論、即時天氣與交通皆未串接。</span></div>
+    <main class="app-view">
+      <section id="tab-home" class="tab-panel" role="tabpanel" aria-labelledby="nav-home">
+        <div class="app-stack"><section class="card pad"><div class="eyebrow">今日一眼</div><h1 class="title" id="greeting">下班了，先把回家的路準備好</h1><div class="muted" id="context">你在展示廣場。目標 18:40 抵達，看看今天從哪裡搭車更順。</div></section>
+          <section class="card pad trip-entry" aria-labelledby="trip-entry-title"><div class="eyebrow">對話式叫車 · 原型</div><h2 id="trip-entry-title">用一句話說你要去哪裡</h2><div class="trip-thread" id="trip-thread" aria-live="polite"><div class="trip-message assistant">輸入「從展示廣場到晴空書屋」，可示範規則解析與起訖點確認。</div></div><label class="sr-only" for="home-trip-input">輸入起點與目的地</label><div class="trip-compose"><textarea id="home-trip-input" maxlength="180" rows="2" placeholder="例如：從展示廣場到晴空書屋" aria-describedby="home-trip-status"></textarea><button id="home-trip-submit" class="btn yellow" type="button">送出</button></div><div class="trip-examples"><button type="button" data-trip-example="從展示廣場到晴空書屋">展示廣場 → 晴空書屋</button><button type="button" data-trip-example="從星光活動館到雲朵轉乘站">星光活動館 → 雲朵轉乘站</button></div><div id="home-trip-status" class="status" role="status" aria-live="polite"></div><span class="hint">目前以本機文字規則解析基本句型，未呼叫 GenAI 或地址服務。此處沒有建立真實訂單，請在叫車頁確認起訖點。</span></section>
+          <section class="card pad"><div class="sectionhead"><h2>今天的移動卡</h2><span>展示資料</span></div><div class="today-grid"><div class="today-item"><span class="eyebrow">模擬天氣 · 出門準備</span><strong id="home-weather">晴時多雲 · 降雨 20%</strong><p id="home-weather-detail">如果要出門，看看今天是否需要帶傘。</p></div><div class="today-item"><span class="eyebrow">虛構乘客的移動習慣</span><strong id="home-pattern">常用時段候選</strong><p id="home-pattern-detail">依既有行程模式整理；不是預告你今天一定會搭車。</p></div></div><button id="go-ride" class="btn yellow home-cta">我要叫車</button><p class="hint">不需要叫車時，也可以先看看今天的出門資訊。</p></section>
+          
+        </div>
+      </section>
+      <section id="tab-ride" class="tab-panel" role="tabpanel" aria-labelledby="nav-ride" hidden>
+        <div class="ride-screen">
+          <div class="ride-map" role="img" aria-label="模擬地圖與上車定位示意，不代表真實位置">
+            <div class="map-top"><span class="map-logo">yo<b>x</b>i</span><span class="map-tag">模擬地圖 · 未使用定位</span></div>
+            <span class="map-road one">展示一街</span><span class="map-road two">展示二街</span><span class="map-road three">展示三街</span>
+            <div class="map-center"><span class="map-pin"><span>●</span></span><span class="map-dot"></span></div>
+            <span class="map-caption" id="map-pickup">上車點 · 展示廣場</span>
+          </div>
+          <section class="ride-sheet" aria-labelledby="ride-title">
+            <div class="ride-handle"></div><h1 id="ride-title">今天要去哪？</h1>
+            <div class="ride-route-inputs">
+              <div class="route-row"><span class="route-mark"></span><div class="route-field"><label for="pickup-input">上車點 · 可修改</label><div class="searchrow"><input id="pickup-input" aria-label="上車位置" placeholder="輸入上車地址" autocomplete="street-address"><button id="pickup-apply" class="btn light" type="button">套用</button></div></div></div>
+              <div class="route-divider"></div>
+              <div class="route-row"><span class="route-mark red"></span><div class="route-field"><label for="destination-input">下車點</label><div class="searchrow"><input id="destination-input" aria-label="輸入其他目的地" placeholder="輸入目的地或選下方捷徑"><button id="search-btn" class="btn dark" type="button">設為目的地</button></div></div></div>
+            </div>
+            <span class="hint" id="pickup-hint">確認或修改上車位置，再選目的地。</span>
+            <div class="sectionhead"><h2 id="dest-title">從這裡出發，你可能常去</h2><span id="source-label">附近歷史（示意）</span></div>
+            <div id="destinations" class="destination-list"></div>
+            <span class="hint" id="dest-hint">點選捷徑或自行輸入，最後請確認目的地。</span>
+            <details class="ride-history"><summary>常用旅程與移動足跡</summary><p>此處以虛構乘客示範常用地點入口，捷徑順序由人工設定。</p><div class="ride-history-list" id="ride-history-list"></div></details>
+            <div class="summary" id="destination-summary"><div><span class="eyebrow">已選路線</span><strong><span id="pickup-current">展示廣場 · A 東側路口</span> → <span id="chosen">展示廣場</span></strong></div><button class="btn yellow" id="confirm-btn">繼續查看行程建議</button></div>
+            <div id="confirm-status" class="status" role="status" aria-live="polite"></div>
+            <div class="ride-extras"><strong>機場接送</strong><span>目的地也可不預先輸入；本原型先示範個人化捷徑。</span></div>
+          </section>
+        </div>
+      </section>
+      <section id="tab-plan" class="tab-panel" role="tabpanel" aria-labelledby="nav-plan" hidden>
+        <div class="app-stack"><div class="card pad"><div class="eyebrow">行程建議</div><h1 class="title">這趟怎麼走更順？</h1><p class="muted" id="plan-route">可先在「叫車」確認上車點與目的地，再比較上車方式。</p><button id="back-to-ride" class="btn light">修改起訖點</button></div><section class="card pad transit-card" aria-labelledby="transit-title"><div class="sectionhead"><h2 id="transit-title">大眾運輸查詢</h2><span>固定示範路線</span></div><p class="transit-route">開啟地圖，自行輸入真實起訖點</p><p class="muted small">此獨立版不呼叫交通 API。可透過下方 Google 地圖連結查詢固定示範路線；與上方虛構乘客、叫車 A／B 數字無關。</p><div class="transit-actions"><button class="btn dark" id="transit-fetch" type="button">查看使用說明</button><a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">在 Google 地圖查看 ↗</a></div><div id="transit-status" class="status" role="status" aria-live="polite">此版本不提供頁內即時班次；外部地圖查詢需要網路。</div></section><section class="card pad" aria-labelledby="pickup-title"><div class="sectionhead"><h2 id="pickup-title">哪裡上車比較順？</h2><span>模擬候車時間</span></div><div class="grid2"><button class="pickup selected" data-pickup="A"><b>A · 東側路口</b><span class="time" id="a-time">14 分</span><span class="detail" id="a-detail">步行 4 分 + 等車 10 分</span></button><button class="pickup" data-pickup="B"><b>B · 南側候車區</b><span class="time" id="b-time">16 分</span><span class="detail" id="b-detail">步行 2 分 + 等車 14 分</span></button></div><div class="comparetip" id="compare-tip">A 雖然多走 2 分鐘，預估到車較快，合計可少花 2 分鐘。你仍可自行選 B。</div><span class="hint">選 A／B 後，上車位置會同步更新。</span></section><section class="card journey" aria-labelledby="time-title"><div class="eyebrow">模擬出門時間</div><h2 id="time-title">今天建議 18:08 出門</h2><p id="time-explain">如果想在 18:40 抵達，今天從 A 點搭車比平常早出門 5 分鐘。</p><div class="clockline"><div class="clock"><span>目標抵達</span><strong id="arrive">18:40</strong></div><div class="clock"><span>平常出門</span><strong id="usual-leave">18:13</strong></div><div class="clock highlight"><span>今天建議出門</span><strong id="today-leave">18:08</strong></div></div><div class="equation"><span>步行 <b id="walk">4</b> 分</span><span>＋ 等車 <b id="wait">10</b> 分</span><span>＋ 車程 <b id="drive">18</b> 分</span><span>＝ 約 <b id="total">32</b> 分</span></div><p class="note" id="time-note">平常等車 5 分，今天假設 10 分；若抵達時間不變，就提早 5 分鐘出門。</p></section></div>
+      </section>
+    </main>
+
+    <footer class="bottom">和泰 AI 競賽概念原型，非 yoxi 官方服務。完全虛構乘客與情境時間為展示內容；沒有讀取你的定位、建立真實訂單或提供即時車況。此獨立展示版僅含虛構情境，不含競賽資料、統計結果或模型。</footer>
+  </div>
+      <nav class="bottomnav" role="tablist" aria-label="主要功能"><button id="nav-home" role="tab" aria-controls="tab-home" aria-selected="true" class="active" data-tab="home"><span>⌂</span>首頁</button><button id="nav-ride" role="tab" aria-controls="tab-ride" aria-selected="false" data-tab="ride"><span>●</span>叫車</button><button id="nav-plan" role="tab" aria-controls="tab-plan" aria-selected="false" data-tab="plan"><span>◇</span>行程建議</button></nav>
+  </div>
+  <script>
+  (()=>{
+    document.querySelector('#presentation-toggle').addEventListener('click',function(){const on=document.body.classList.toggle('presentation');this.setAttribute('aria-pressed',String(on));this.textContent=on?'返回展示設定':'簡報模式';document.querySelector('.shell').scrollTo({top:0});});
+    const scenarios={
+  "commute": {
+    "greeting": "下班後的移動",
+    "context": "虛構情境：從展示廣場出發，目標 19:00 抵達。",
+    "arrive": "19:00",
+    "usualWait": 5,
+    "waitA": 7,
+    "walkA": 4,
+    "waitB": 10,
+    "walkB": 2,
+    "drive": 20,
+    "place": "展示廣場"
+  },
+  "rain": {
+    "greeting": "雨天出門",
+    "context": "虛構情境：從晴雨轉乘站出發，目標 10:00 抵達。",
+    "arrive": "10:00",
+    "usualWait": 5,
+    "waitA": 9,
+    "walkA": 3,
+    "waitB": 13,
+    "walkB": 1,
+    "drive": 18,
+    "place": "晴雨轉乘站"
+  },
+  "event": {
+    "greeting": "活動散場",
+    "context": "虛構情境：從星光活動館出發，目標 21:30 抵達。",
+    "arrive": "21:30",
+    "usualWait": 5,
+    "waitA": 8,
+    "walkA": 5,
+    "waitB": 14,
+    "walkB": 2,
+    "drive": 22,
+    "place": "星光活動館"
+  }
+};
+    const personas={
+  "A": {
+    "name": "乘客 A",
+    "type": "固定時段示例",
+    "history": "人工設定的跨週情境",
+    "profile": "nearby",
+    "detail": "附近上車歷史與目的地捷徑均為人工設定，未執行模型。",
+    "destinations": [
+      "晴空書屋",
+      "星河廣場",
+      "微風活動館"
+    ]
+  },
+  "B": {
+    "name": "乘客 B",
+    "type": "轉乘示例",
+    "history": "人工設定的轉乘情境",
+    "profile": "nearby",
+    "detail": "示範附近上車點的目的地捷徑，天氣為切換情境。",
+    "destinations": [
+      "雲朵轉乘站",
+      "青葉展示館",
+      "晴空書屋"
+    ]
+  },
+  "C": {
+    "name": "乘客 C",
+    "type": "週末活動示例",
+    "history": "人工設定的個人歷史",
+    "profile": "personal",
+    "detail": "示範只顯示個人常用地點；沒有本次位置的附近歷史。",
+    "destinations": [
+      "星河廣場",
+      "微風活動館",
+      "青葉展示館"
+    ]
+  },
+  "D": {
+    "name": "乘客 D",
+    "type": "改上車點示例",
+    "history": "人工設定的個人歷史",
+    "profile": "personal",
+    "detail": "上車點可修改；人工捷徑不會依新地址執行真實推論。",
+    "destinations": [
+      "晴空書屋",
+      "雲朵轉乘站",
+      "微風活動館"
+    ]
+  },
+  "E": {
+    "name": "乘客 E",
+    "type": "初次使用示例",
+    "history": "未設定歷史",
+    "profile": "new",
+    "detail": "沒有目的地捷徑，請自行輸入展示地址。",
+    "destinations": []
+  }
+};
+    const state={scenario:'commute',profile:'nearby',persona:'A',pickup:'A',customPickup:'',chosen:personas.A.destinations[0],confirmedRoute:false,tab:'home'};
+    const query=(s)=>document.querySelector(s), queryAll=(s)=>[...document.querySelectorAll(s)];
+    function switchTab(tab){if(!['home','ride','plan'].includes(tab))return;state.tab=tab;queryAll('.tab-panel').forEach(p=>{p.hidden=p.id!==`tab-${tab}`});queryAll('.bottomnav [role="tab"]').forEach(b=>{const selected=b.dataset.tab===tab;b.classList.toggle('active',selected);b.setAttribute('aria-selected',String(selected))});query('.shell').scrollTo({top:0,behavior:'smooth'})}
+    function clock(time,mins){const [h,m]=time.split(':').map(Number);let t=(h*60+m+mins+1440*2)%1440;return `${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`}
+    function parseTripRequest(text){
+      const value=text.normalize('NFKC').trim().replace(/[。！？!?]+$/,'');
+      let parts=value.match(/^(?:我(?:想|要)?|請|幫我)?\s*(?:搭車|叫車)?\s*(?:從|由)\s*(.+?)\s*(?:到|去|前往|→|->)\s*(.+)$/);
+      if(!parts)parts=value.match(/^from\s+(.+?)\s+to\s+(.+)$/i);
+      if(!parts)parts=value.match(/^(.+?)\s*(?:到|→|->)\s*(.+)$/);
+      if(!parts)return null;
+      const origin=parts[1].trim().replace(/^(?:我(?:想|要)?|請|幫我)?\s*(?:搭車|叫車)?\s*從/,'').trim();
+      const destination=parts[2].trim().replace(/(?:叫車|搭車|吧|好嗎|可以嗎)[。！？!?]*$/,'').trim();
+      if(!origin||!destination||origin===destination||origin.length>80||destination.length>80||/(?:再|然後)(?:到|去|前往)/.test(destination))return null;
+      return {origin,destination};
+    }
+    function addTripMessage(message,who){
+      const thread=query('#trip-thread'),bubble=document.createElement('div');
+      bubble.className=`trip-message ${who}`;bubble.textContent=message;thread.append(bubble);
+      while(thread.children.length>5)thread.children[1].remove();
+    }
+    function submitTripRequest(){
+      const input=query('#home-trip-input').value.trim(),button=query('#home-trip-submit'),status=query('#home-trip-status');
+      if(!input){status.textContent='請輸入起點與目的地。';return}
+      addTripMessage(input,'user');
+      button.disabled=true;button.textContent='辨識中…';status.textContent='正在辨識起訖點…';
+      const parsed=parseTripRequest(input);
+      button.disabled=false;button.textContent='送出';
+      if(!parsed){status.textContent='請明確輸入「從 A 到 B」。';addTripMessage('請提供起點與目的地，例如「從展示廣場到展示轉乘站」。','assistant');return}
+      const s=scenarios[state.scenario];
+      const nearby=parsed.origin===s.place;
+      state.pickup=nearby?'A':'custom';state.customPickup=nearby?'':parsed.origin;
+      state.chosen=parsed.destination;state.confirmedRoute=false;
+      addTripMessage(`上車點：${parsed.origin}\n目的地：${parsed.destination}\n基本句型已解析；接下來請確認或修改地址。`,'assistant');
+      render();query('#demo-settings').open=false;switchTab('ride');
+      query('#confirm-status').textContent=`基本句型已解析起點「${parsed.origin}」與目的地「${parsed.destination}」。請檢查並修改文字；目前尚未建立叫車訂單。`;
+      status.textContent=`基本句型解析已帶入叫車頁，請確認起訖點。`;
+    }
+    function render(){const s=scenarios[state.scenario],person=personas[state.persona],isCustom=state.pickup==='custom',effectiveProfile=isCustom&&state.profile==='nearby'?'personal':state.profile,selected=state.pickup==='B'?{walk:s.walkB,wait:s.waitB}:{walk:s.walkA,wait:s.waitA};const total=selected.walk+selected.wait+s.drive;const baseline=selected.walk+s.usualWait+s.drive;const delta=selected.wait-s.usualWait;
+      query('#scenario-select').value=state.scenario;query('#profile').value=state.profile;query('#persona-select').value=state.persona;query('#demo-current').textContent=`展示設定 · ${person.name}／${query('#scenario-select').selectedOptions[0].textContent}`;
+      query('#persona-list').replaceChildren();Object.entries(personas).forEach(([id,p])=>{const el=document.createElement('div');el.className='persona-mini'+(id===state.persona?' selected':'');const head=document.createElement('strong');head.textContent=`${p.name}`;const desc=document.createElement('span');desc.textContent=`${p.type}｜${p.history}`;el.append(head,desc);query('#persona-list').append(el)});query('#persona-detail').textContent=`目前：${person.name}。${person.detail}`;
+      const origin=isCustom?state.customPickup:`${s.place} · ${state.pickup} ${state.pickup==='A'?'東側路口':'南側候車區'}`;query('#pickup-current').textContent=origin;query('#pickup-input').value=origin;query('#map-pickup').textContent=`上車點 · ${origin}`;query('#ride-history-list').replaceChildren();(person.destinations.length?person.destinations:['暫無常用旅程']).forEach(name=>{const item=document.createElement('span');item.textContent=name;query('#ride-history-list').append(item)});query('.journey').hidden=isCustom||!state.confirmedRoute;query('[aria-labelledby="pickup-title"]').hidden=isCustom||!state.confirmedRoute;
+      query('#plan-route').textContent=state.confirmedRoute?`已選：${origin} → ${state.chosen}。${isCustom?"自訂地址不提供候車或出門時間估計。":"以下為人工設定的時間比較，不是實際路線估計。"}`:'先在「叫車」確認上車點與目的地，再查看這趟的上車建議。';
+      query('#home-weather').textContent=state.scenario==='rain'?'降雨 70% · 建議帶傘':state.scenario==='event'?'夜間多雲 · 降雨 20%':'晴時多雲 · 降雨 20%';query('#home-weather-detail').textContent=state.scenario==='rain'?'接下來出門時，可優先找有遮蔽的候車點。':state.scenario==='event'?'散場後若較晚出發，可先看好回程上車點。':'如果要出門，看看今天是否需要帶傘。';
+      const regular=state.persona==='A'?'平日 18–20 時常出發':state.persona==='B'?'平日 8–10 時常出發':null;query('#home-pattern').textContent=regular||'沒有明確的常用時段';query('#home-pattern-detail').textContent=regular?'你可以從叫車頁快速選擇常去地點。':state.persona==='E'?'搭車歷史不足，先維持一般叫車入口。':'目前不安排固定時段提醒，仍可從叫車頁使用個人歷史捷徑。';
+      query('#pickup-hint').textContent=isCustom?'已套用自訂上車位置。這個 demo 沒有地址轉座標，無法確認附近歷史路線，也不計算此位置的出門時間；在展示設定重選情境，可恢復 A／B 比較。':'確認或修改上車位置，再選目的地。';
+      query('#greeting').textContent=s.greeting;query('#context').textContent=s.context;query('#arrive').textContent=s.arrive;query('#usual-leave').textContent=clock(s.arrive,-baseline);query('#today-leave').textContent=clock(s.arrive,-total);query('#time-title').textContent=`今天建議 ${clock(s.arrive,-total)} 出門`;query('#time-explain').textContent=`若想在 ${s.arrive} 抵達，從 ${state.pickup} 點搭車，${delta>0?`比平常提早 ${delta} 分鐘出門`:(delta<0?`比平常可晚 ${-delta} 分鐘出門`:'和往常同時間出門')}。`;
+      query('#walk').textContent=selected.walk;query('#wait').textContent=selected.wait;query('#drive').textContent=s.drive;query('#total').textContent=total;query('#time-note').textContent=`${state.pickup} 點平常等車 ${s.usualWait} 分，今天假設 ${selected.wait} 分；出門時間隨之${delta>0?'提前':delta<0?'延後':'不變'} ${Math.abs(delta)} 分。`;
+      query('#a-time').textContent=`${s.walkA+s.waitA} 分`;query('#a-detail').textContent=`步行 ${s.walkA} 分 + 等車 ${s.waitA} 分`;query('#b-time').textContent=`${s.walkB+s.waitB} 分`;query('#b-detail').textContent=`步行 ${s.walkB} 分 + 等車 ${s.waitB} 分`;
+      const diff=s.walkB+s.waitB-s.walkA-s.waitA;query('#compare-tip').textContent=diff>0?`A 雖然可能需要多走一段路，步行＋等車合計比 B 少 ${diff} 分鐘；你仍可自行選 B。`:diff<0?`B 的步行＋等車合計比 A 少 ${-diff} 分鐘；你仍可自行選 A。`:'兩處步行＋等車時間相同，可依個人偏好選擇。';
+      queryAll('.pickup').forEach(b=>{b.classList.toggle('selected',b.dataset.pickup===state.pickup);b.setAttribute('aria-pressed',String(b.dataset.pickup===state.pickup))});
+      query('#source-label').textContent=effectiveProfile==='nearby'?'附近歷史（示意）':effectiveProfile==='personal'?'個人歷史（示意）':'自行輸入目的地';query('#dest-title').textContent=effectiveProfile==='nearby'?'從這裡出發，你可能常去':effectiveProfile==='personal'?'你的常去地點': '要去哪裡？';
+      const container=query('#destinations'),names=person.destinations;container.replaceChildren();if(effectiveProfile==='new'){const d=document.createElement('div');d.className='empty';d.textContent='目前沒有足夠歷史，不猜你的目的地。請直接輸入地址。';container.append(d)}else{names.forEach((name,i)=>{const b=document.createElement('button');b.className='dest'+(state.chosen===name?' selected':'');b.type='button';b.setAttribute('aria-pressed',String(state.chosen===name));const badge=document.createElement('span');badge.className='num';badge.textContent=String(i+1).padStart(2,'0');const t=document.createElement('span');t.className='text';const strong=document.createElement('strong');strong.textContent=name;const sub=document.createElement('small');sub.textContent=effectiveProfile==='nearby'?'從這附近出發，過往曾前往':'你的歷史目的地';t.append(strong,sub);const tick=document.createElement('span');tick.className='tick';tick.textContent=state.chosen===name?'已選':'選擇';b.append(badge,t,tick);b.addEventListener('click',()=>{state.chosen=name;state.confirmedRoute=false;query('#confirm-status').textContent='';render()});container.append(b)})}
+      query('#chosen').textContent=state.chosen||'尚未選擇';query('#destination-summary').hidden=!state.chosen;query('#dest-hint').textContent=effectiveProfile==='new'?'輸入內容僅供示意，沒有地址查詢或偏好推論。':isCustom?'自訂上車點無法在此 demo 比對座標，因此退回個人常去目的地；選項仍需由你確認。':'點選捷徑或自行輸入，最後請確認目的地。'
+    }
+    queryAll('.bottomnav [role="tab"]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));query('#go-ride').addEventListener('click',()=>switchTab('ride'));query('#back-to-ride').addEventListener('click',()=>switchTab('ride'));query('#demo-start').addEventListener('click',()=>{query('#demo-settings').open=false;switchTab('home')});
+    query('#home-trip-submit').addEventListener('click',submitTripRequest);
+    query('#home-trip-input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submitTripRequest()}});
+    queryAll('[data-trip-example]').forEach(button=>button.addEventListener('click',()=>{query('#home-trip-input').value=button.dataset.tripExample;submitTripRequest()}));
+    query('#scenario-select').addEventListener('change',e=>{state.scenario=e.target.value;state.pickup='A';state.customPickup='';state.confirmedRoute=false;query('#confirm-status').textContent='';render()});queryAll('.pickup').forEach(b=>b.addEventListener('click',()=>{state.pickup=b.dataset.pickup;state.customPickup='';query('#confirm-status').textContent='';render()}));query('#profile').addEventListener('change',e=>{state.profile=e.target.value;state.persona=Object.keys(personas).find(id=>personas[id].profile===state.profile);state.chosen=personas[state.persona].destinations[0]||'';state.confirmedRoute=false;query('#confirm-status').textContent='';render()});query('#persona-select').addEventListener('change',e=>{state.persona=e.target.value;state.profile=personas[state.persona].profile;state.chosen=personas[state.persona].destinations[0]||'';state.confirmedRoute=false;query('#confirm-status').textContent='';render()});
+    function applyPickup(){const value=query('#pickup-input').value.trim();if(!value){query('#confirm-status').textContent='請先輸入上車位置。';return}const s=scenarios[state.scenario],a=`${s.place} · A 東側路口`,b=`${s.place} · B 南側候車區`;state.pickup=value===a?'A':value===b?'B':'custom';state.customPickup=state.pickup==='custom'?value.slice(0,100):'';state.confirmedRoute=false;query('#confirm-status').textContent=state.pickup==='custom'?'已套用自訂上車點；此 demo 暫不計算該位置的等車與出門時間。':'已更新上車位置。';render()}
+    query('#pickup-apply').addEventListener('click',applyPickup);query('#pickup-input').addEventListener('keydown',e=>{if(e.key==='Enter')applyPickup()});
+    function chooseTyped(){const value=query('#destination-input').value.trim();if(!value){query('#confirm-status').textContent='請先輸入目的地。';return false}state.chosen=value.slice(0,80);state.confirmedRoute=false;query('#destination-input').value='';query('#confirm-status').textContent='已將輸入的地點設為目的地，尚未建立叫車訂單。';render();return true}
+    query('#search-btn').addEventListener('click',chooseTyped);query('#destination-input').addEventListener('keydown',e=>{if(e.key==='Enter')chooseTyped()});query('#confirm-btn').addEventListener('click',()=>{if(!state.chosen)return;state.confirmedRoute=true;query('#confirm-status').textContent='已確認示意路線，正在查看行程建議；尚未建立叫車訂單。';render();switchTab('plan')});query('#transit-fetch').addEventListener('click',()=>{query('#transit-status').textContent='此獨立版沒有即時路線 API。請點選「在 Google 地圖查看」，請在外部地圖自行輸入真實起訖點。'});render();switchTab('home');
+  })();
+  </script>
+</body></html>
